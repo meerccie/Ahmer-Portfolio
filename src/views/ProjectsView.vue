@@ -1,66 +1,51 @@
 <script setup lang="ts">
-import { ref, computed } from 'vue'
-import type { Project } from '@/types/project'
+import { projects } from '@/data/portfolioData'
 import ProjectCard from '@/components/ProjectCard.vue'
-
-const allProjects = ref<Project[]>([
-  {
-    id: 1,
-    title: 'E-Commerce Dashboard',
-    description: 'A high-performance admin panel built with Vue 3 and Pinia.',
-    technologies: ['Vue', 'TypeScript', 'Tailwind'],
-    imageUrl: '/images/profile.jpg', // Simplified path
-    githubUrl: 'https://github.com',
-    liveUrl: 'https://example.com',
-    featured: true,
-  },
-  // Add more projects here to see the grid in action
-])
-
-const selectedTech = ref<string>('All')
-const categories = ['All', 'Vue', 'TypeScript', 'Node.js']
-
-const filteredProjects = computed(() => {
-  if (selectedTech.value === 'All') return allProjects.value
-  return allProjects.value.filter((p) => p.technologies.includes(selectedTech.value))
-})
 </script>
 
 <template>
-  <main
-    class="max-w-7xl mx-auto px-6 py-12 min-h-screen flex flex-col items-center justify-center text-center"
-  >
-    <header class="text-center mb-16">
-      <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight text-slate-900 dark:text-white">
-        My Creative Work
+  <main class="relative z-10 max-w-7xl mx-auto px-6 py-32 min-h-screen">
+    <header class="text-center mb-20">
+      <span class="text-emerald-500 font-black uppercase tracking-[0.3em] text-[10px]">
+        Showcase
+      </span>
+      <h1 class="text-5xl md:text-7xl font-black tracking-tighter mt-4 mb-6 text-white">
+        Creative <span class="text-emerald-500">Works.</span>
       </h1>
-      <p class="mt-4 text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
-        A collection of projects I've built using modern web technologies.
+      <p class="text-slate-400 max-w-2xl mx-auto text-lg leading-relaxed font-medium">
+        A collection of projects ranging from mobile applications to web-based systems, focusing on
+        clean code and functional design.
       </p>
     </header>
 
-    <div class="flex flex-wrap justify-center gap-3 mb-12">
-      <button
-        v-for="tech in categories"
-        :key="tech"
-        @click="selectedTech = tech"
-        :class="[
-          'px-6 py-2 rounded-full border transition-all duration-300 font-medium',
-          selectedTech === tech
-            ? 'bg-emerald-500 border-emerald-500 text-white shadow-lg shadow-emerald-500/30'
-            : 'border-slate-300 text-slate-600 hover:border-emerald-500 hover:text-emerald-500 dark:border-slate-700 dark:text-slate-400',
-        ]"
+    <section class="w-full">
+      <TransitionGroup
+        tag="div"
+        name="project-list"
+        class="flex flex-wrap justify-center gap-8 md:gap-10"
+        enter-active-class="transition duration-500 ease-out"
+        enter-from-class="opacity-0 translate-y-10"
+        enter-to-class="opacity-100 translate-y-0"
       >
-        {{ tech }}
-      </button>
-    </div>
-
-    <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-      <TransitionGroup name="list">
-        <ProjectCard v-for="project in filteredProjects" :key="project.id" :project="project" />
-        <ProjectCard v-for="project in filteredProjects" :key="project.id" :project="project" />
-        <ProjectCard v-for="project in filteredProjects" :key="project.id" :project="project" />
+        <ProjectCard
+          v-for="project in projects"
+          :key="project.id"
+          :project="project"
+          class="w-full md:w-[calc(50%-20px)] lg:w-[calc(33.333%-27px)] max-w-[400px] hover:-translate-y-2 transition-transform duration-300"
+        />
       </TransitionGroup>
     </section>
+
+    <div v-if="projects.length === 0" class="text-center py-32">
+      <p class="text-slate-500 text-sm uppercase tracking-widest font-black">
+        No projects to display yet.
+      </p>
+    </div>
   </main>
 </template>
+
+<style scoped>
+.project-list-move {
+  transition: all 0.5s ease;
+}
+</style>

@@ -8,46 +8,54 @@ defineProps<{
 
 <template>
   <div
-    class="group flex flex-col overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm transition-all duration-300 hover:-translate-y-2 hover:shadow-xl dark:border-slate-700 dark:bg-slate-800"
+    class="group flex flex-col overflow-hidden rounded-2xl border border-white/5 bg-white/[0.02] backdrop-blur-sm transition-all duration-500 hover:-translate-y-2 hover:border-emerald-500/30 hover:bg-white/[0.04] hover:shadow-[0_20px_40px_-15px_rgba(16,185,129,0.1)]"
   >
     <div
-      class="overflow-hidden aspect-video flex items-center justify-center bg-slate-50 dark:bg-slate-900/50"
+      class="relative overflow-hidden aspect-video flex items-center justify-center bg-slate-900/50 border-b border-white/5"
     >
       <img
         :src="project.imageUrl"
         :alt="project.title"
-        class="h-24 w-auto transition-transform duration-500 group-hover:scale-110"
+        class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-80 group-hover:opacity-100"
       />
+      <div
+        class="absolute inset-0 bg-gradient-to-t from-slate-950/60 to-transparent opacity-60"
+      ></div>
     </div>
 
-    <div class="flex flex-1 flex-col p-6">
-      <h3 class="text-xl font-bold text-slate-900 dark:text-white">
-        {{ project.title }}
-      </h3>
+    <div class="flex flex-1 flex-col p-6 md:p-8">
+      <div class="flex justify-between items-start mb-3">
+        <h3
+          class="text-xl font-black tracking-tight text-white group-hover:text-emerald-400 transition-colors"
+        >
+          {{ project.title }}
+        </h3>
+        <span class="text-[10px] font-black uppercase tracking-widest text-emerald-500/50">
+          {{ project.category }}
+        </span>
+      </div>
 
-      <p class="mt-3 flex-1 text-sm leading-relaxed text-slate-600 dark:text-slate-400">
+      <p class="flex-1 text-sm leading-relaxed text-slate-400 font-medium">
         {{ project.description }}
       </p>
 
-      <div class="mt-5 flex flex-wrap gap-2">
+      <div class="mt-6 flex flex-wrap gap-2">
         <span
           v-for="tech in project.technologies"
           :key="tech"
-          class="rounded-md bg-slate-100 px-2.5 py-1 text-xs font-semibold text-slate-600 dark:bg-slate-700 dark:text-slate-300"
+          class="rounded-md bg-emerald-500/5 border border-emerald-500/10 px-2.5 py-1 text-[10px] font-black uppercase tracking-wider text-emerald-500/80"
         >
           {{ tech }}
         </span>
       </div>
 
-      <div
-        class="mt-6 flex items-center justify-between border-t border-slate-100 pt-4 dark:border-slate-700"
-      >
-        <div class="flex gap-4">
+      <div class="mt-8 flex items-center justify-between border-t border-white/5 pt-5">
+        <div class="flex gap-6">
           <a
             v-if="project.githubUrl"
             :href="project.githubUrl"
             target="_blank"
-            class="text-sm font-medium text-slate-600 hover:text-emerald-500 dark:text-slate-400 dark:hover:text-emerald-400"
+            class="text-[11px] font-black uppercase tracking-widest text-slate-500 hover:text-white transition-colors"
           >
             GitHub
           </a>
@@ -55,10 +63,10 @@ defineProps<{
             v-if="project.liveUrl"
             :href="project.liveUrl"
             target="_blank"
-            class="inline-flex items-center text-sm font-bold text-emerald-600 hover:text-emerald-700 dark:text-emerald-400 dark:hover:text-emerald-300"
+            class="inline-flex items-center text-[11px] font-black uppercase tracking-widest text-emerald-500 hover:text-emerald-300 transition-colors"
           >
             Live Demo
-            <span class="ml-1">→</span>
+            <span class="ml-2 transition-transform group-hover:translate-x-1">→</span>
           </a>
         </div>
       </div>

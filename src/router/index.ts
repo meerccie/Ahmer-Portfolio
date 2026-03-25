@@ -1,15 +1,26 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import ProjectsView from '@/views/ProjectsView.vue'
+import IndexView from '@/views/IndexView.vue'
+import ConnectView from '@/views/ConnectView.vue'
 
 const router = createRouter({
   history: createWebHistory(),
   routes: [
     {
       path: '/',
-      name: 'home',
+      name: 'index',
+      component: IndexView,
+    },
+    {
+      path: '/projects',
+      name: 'projects',
       component: ProjectsView,
     },
-    // You can add a 'ProjectDetail' route later
+    {
+      path: '/connect',
+      name: 'connect',
+      component: ConnectView,
+    },
   ],
 })
 
