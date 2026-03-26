@@ -85,7 +85,7 @@ const techs = [
               <img
                 :src="myProfile.imageUrl"
                 :alt="myProfile.name"
-                class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
+                class="w-full h-full object-cover grayscale-0 md:grayscale md:hover:grayscale-0 transition-all duration-700"
               />
             </div>
           </div>
@@ -100,10 +100,10 @@ const techs = [
         <div v-for="tech in techs" :key="tech.name" class="flex flex-col items-center group/icon">
           <OhVueIcon
             :name="tech.icon"
-            class="w-10 h-10 md:w-12 md:h-12 opacity-40 group-hover/icon:opacity-100 group-hover/icon:scale-110 transition-all duration-300"
+            class="w-10 h-10 md:w-12 md:h-12 opacity-100 md:opacity-40 group-hover/icon:opacity-100 md:group-hover/icon:scale-110 transition-all duration-300"
           />
           <span
-            class="text-[9px] font-black tracking-widest text-slate-500 mt-3 uppercase group-hover/icon:text-emerald-400 transition-colors"
+            class="text-[9px] font-black tracking-widest text-emerald-400 md:text-slate-500 mt-3 uppercase group-hover/icon:text-emerald-400 transition-colors"
           >
             {{ tech.name }}
           </span>
