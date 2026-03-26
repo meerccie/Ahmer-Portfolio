@@ -29,7 +29,7 @@ const socials = [
     >
       <div class="text-center md:text-left">
         <p class="text-white font-black text-[10px] uppercase tracking-widest mb-2">Based in</p>
-        <p class="text-slate-400 text-sm font-medium">Taguig City 1630, Philippines</p>
+        <p class="text-slate-400 text-sm font-medium">Taguig City, Philippines</p>
         <p class="text-slate-500 text-[10px] mt-4 font-bold uppercase tracking-tighter">
           © {{ currentYear }} Al Ahmer Rhoden M. Timpahan
         </p>
