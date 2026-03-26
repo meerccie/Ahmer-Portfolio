@@ -1,6 +1,5 @@
 import type { UserProfile } from '@/types/user'
 import type { Project } from '@/types/project'
-import { Layout, Smartphone, Cpu, Database } from 'lucide-vue-next'
 
 export const myProfile: UserProfile = {
   name: 'Al Ahmer Rhoden M. Timpahan',
@@ -19,8 +18,9 @@ export const projects: Project[] = [
     title: 'Plantitao App',
     description:
       'A Flutter-based marketplace with plant scanning technology and buyer/seller roles.',
-    technologies: ['Dart', 'Flutter', 'Git'],
+    technologies: ['Dart', 'Flutter', 'Git', 'Supabase'],
     imageUrl: '/images/plantitao.jpg',
+    githubUrl: 'https://github.com/meerccie/plant_scanning-identification',
     featured: true,
     category: 'Mobile',
   },
@@ -28,8 +28,10 @@ export const projects: Project[] = [
     id: 2,
     title: 'DepEd PDS System',
     description: 'Web-based Personal Data Sheet system with AJAX-based record fetching.',
-    technologies: ['Vue', 'PHP', 'PostgreSQL'],
+    // Updated tech stack from Vue to React
+    technologies: ['React', 'TypeScript', 'Git'],
     imageUrl: '/images/pds.jpg',
+    githubUrl: 'https://github.com/meerccie/DepEdForms',
     featured: false,
     category: 'Web',
   },
