@@ -1,17 +1,24 @@
 <script setup lang="ts">
 import { OhVueIcon, addIcons } from 'oh-vue-icons'
-import { SiFacebook, SiGithub, SiLinkedin, SiDiscord } from 'oh-vue-icons/icons'
+import { SiFacebook, SiGithub, SiLinkedin } from 'oh-vue-icons/icons'
 
 // Adding icons for the footer
-addIcons(SiFacebook, SiGithub, SiLinkedin, SiDiscord)
+addIcons(SiFacebook, SiGithub, SiLinkedin)
 
 const currentYear = new Date().getFullYear()
 
 const socials = [
-  { name: 'Facebook', icon: 'si-facebook', link: 'YOUR_FACEBOOK_LINK' },
-  { name: 'Github', icon: 'si-github', link: 'YOUR_GITHUB_LINK' },
-  { name: 'LinkedIn', icon: 'si-linkedin', link: 'YOUR_LINKEDIN_LINK' },
-  { name: 'Discord', icon: 'si-discord', link: 'YOUR_DISCORD_LINK' },
+  {
+    name: 'Facebook',
+    icon: 'si-facebook',
+    link: 'https://web.facebook.com/alahmerrhoden.timpahan.9/',
+  },
+  { name: 'Github', icon: 'si-github', link: 'https://github.com/meerccie' },
+  {
+    name: 'LinkedIn',
+    icon: 'si-linkedin',
+    link: 'https://www.linkedin.com/in/timpahan-al-ahmer-rhoden',
+  },
 ]
 </script>
 
