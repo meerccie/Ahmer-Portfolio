@@ -9,7 +9,7 @@ export const myProfile: UserProfile = {
   email: 'ahmertimpahan297@gmail.com',
   phone: '0920-460-5839',
   freelance: 'Available',
-  bio: 'A Junior Developer specializing in building high-performance applications with Laravel, Vue.js, and Flutter. I focus on clean architectural structure and advanced data modeling using Eloquent ORM to bridge complex backend logic with intuitive, mobile-first user experiences.',
+  bio: 'A Junior Developer specializing in building high-performance applications with Laravel, Vue.js, and Flutter. I focus on clean architectural structure and advanced data modeling using Eloquent ORM to bridge complex backend logic with intuitive, web and mobile-first user experiences.',
 }
 
 export const experiences: Experience[] = [
