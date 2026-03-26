@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { myProfile, experiences } from '@/data/portfolioData'
+import { highlightTech, formatBio } from '@/utils/highlighter' // Import the helpers
 import { OhVueIcon, addIcons } from 'oh-vue-icons'
 import {
   ViFileTypeFlutter,
@@ -19,6 +21,16 @@ addIcons(
   SiPostgresql,
   SiPhp,
 )
+
+const techs = [
+  { name: 'Flutter', icon: 'vi-file-type-flutter' },
+  { name: 'React', icon: 'vi-file-type-reactjs' },
+  { name: 'Vue.js', icon: 'vi-file-type-vue' },
+  { name: 'Laravel', icon: 'si-laravel' },
+  { name: 'Postgres', icon: 'si-postgresql' },
+  { name: 'Eloquent ORM', icon: 'si-php' },
+  { name: 'MySQL', icon: 'vi-file-type-mysql' },
+]
 </script>
 
 <template>
@@ -29,7 +41,7 @@ addIcons(
           <div
             class="inline-block px-3 py-1 mb-6 text-[10px] font-black uppercase tracking-[0.2em] text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 rounded-full"
           >
-            Junior Developer
+            {{ myProfile.title }}
           </div>
 
           <h1
@@ -41,31 +53,23 @@ addIcons(
           <div
             class="space-y-4 text-slate-400 text-sm md:text-base leading-relaxed font-medium mb-8 max-w-xl"
           >
-            <p>
-              I'm <span class="text-white font-bold">Al Ahmer Rhoden M. Timpahan</span>. I'm a
-              developer who enjoys crafting smooth web and mobile experiences using
-              <span class="text-emerald-400">Vue.js</span>,
-              <span class="text-emerald-400">Laravel</span>, and
-              <span class="text-emerald-400">Flutter</span>.
-            </p>
-            <p>
-              I focus on building clean, user-centered systems, leveraging tools like
-              <span class="text-white font-bold">Eloquent ORM</span> and
-              <span class="text-white font-bold">PostgreSQL</span> to turn complex data into
-              functional, everyday tools.
+            <p v-html="'I\'m ' + formatBio(myProfile.name, myProfile.bio)"></p>
+
+            <p class="text-[10px] uppercase tracking-[0.2em] text-slate-500 font-black">
+              {{ myProfile.freelance }} for Projects
             </p>
           </div>
 
           <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
             <router-link
               to="/projects"
-              class="px-8 py-3 bg-emerald-500 text-slate-950 rounded-lg font-black text-[11px] uppercase tracking-widest hover:bg-emerald-400 transition-all shadow-lg shadow-emerald-500/10"
+              class="px-8 py-3 bg-emerald-500 text-slate-950 rounded-lg font-black text-[11px] uppercase tracking-widest hover:bg-emerald-400 transition-all shadow-lg shadow-emerald-500/10 text-center"
             >
               View Projects
             </router-link>
             <router-link
               to="/connect"
-              class="px-8 py-3 border border-slate-700 text-white rounded-lg font-black text-[11px] uppercase tracking-widest hover:bg-white/5 transition-all"
+              class="px-8 py-3 border border-slate-700 text-white rounded-lg font-black text-[11px] uppercase tracking-widest hover:bg-white/5 transition-all text-center"
             >
               Message me
             </router-link>
@@ -79,8 +83,8 @@ addIcons(
               class="relative z-10 w-full aspect-[4/5] overflow-hidden rounded-[0.8rem] bg-slate-900 border border-white/5 shadow-xl"
             >
               <img
-                src="https://via.placeholder.com/600x750"
-                alt="Al Ahmer Rhoden M. Timpahan"
+                :src="myProfile.imageUrl"
+                :alt="myProfile.name"
                 class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
               />
             </div>
@@ -117,101 +121,26 @@ addIcons(
             Experience
           </h2>
         </div>
-
         <div
           class="lg:col-span-8 relative border-l border-emerald-500/10 ml-3 lg:ml-0 pl-8 space-y-12"
         >
-          <div class="relative">
+          <div v-for="item in experiences" :key="item.id" class="relative">
             <div
               class="absolute -left-[36.5px] top-1.5 w-3 h-3 rounded-full bg-emerald-500/20 border border-emerald-500/50"
             ></div>
-            <span class="text-emerald-500 font-black text-[10px] uppercase tracking-widest block"
-              >Feb 2025 – Oct 2025</span
-            >
+            <span class="text-emerald-500 font-black text-[10px] uppercase tracking-widest block">
+              {{ item.dateRange }}
+            </span>
             <h3 class="text-lg md:text-xl font-black text-white mt-1 uppercase">
-              Web Development (Vue.Js) — Front End
+              {{ item.title }}
             </h3>
-            <ul
-              class="text-slate-400 mt-3 space-y-2 text-sm font-medium list-disc ml-4 leading-relaxed"
-            >
-              <li>
-                Created an educational web application designed to make learning more engaging
-                through interactive experiences.
-              </li>
-              <li>
-                Focused on responsive UI design and intuitive navigation for better accessibility.
-              </li>
-            </ul>
-          </div>
-
-          <div class="relative">
-            <div
-              class="absolute -left-[36.5px] top-1.5 w-3 h-3 rounded-full bg-emerald-500/20 border border-emerald-500/50"
-            ></div>
-            <span class="text-emerald-500 font-black text-[10px] uppercase tracking-widest block"
-              >Aug 2025 – Nov 2025</span
-            >
-            <h3 class="text-lg md:text-xl font-black text-white mt-1 uppercase">
-              Mobile App Development (Flutter)
-            </h3>
-            <ul
-              class="text-slate-400 mt-3 space-y-2 text-sm font-medium list-disc ml-4 leading-relaxed"
-            >
-              <li>Built a marketplace app with plant scanning to help buyers find nearby stock.</li>
-              <li>Implemented separate buyer/seller roles and inventory management for stores.</li>
-            </ul>
-          </div>
-
-          <div class="relative">
-            <div
-              class="absolute -left-[36.5px] top-1.5 w-3 h-3 rounded-full bg-emerald-500/20 border border-emerald-500/50"
-            ></div>
-            <span class="text-emerald-500 font-black text-[10px] uppercase tracking-widest block"
-              >Sept 2025 – Dec 2025</span
-            >
-            <h3 class="text-lg md:text-xl font-black text-white mt-1 uppercase">
-              DepEd Provincial Office — PDS Application (OJT)
-            </h3>
-            <ul
-              class="text-slate-400 mt-3 space-y-2 text-sm font-medium list-disc ml-4 leading-relaxed"
-            >
-              <li>
-                Streamlined data capture by developing a web-based Personal Data Sheet (PDS) form.
-              </li>
-              <li>
-                Implemented AJAX-based lookup via DUAN numbers to auto-populate applicant records.
-              </li>
-            </ul>
+            <p
+              class="text-slate-400 mt-3 text-sm font-medium leading-relaxed whitespace-pre-line"
+              v-html="highlightTech(item.description)"
+            ></p>
           </div>
         </div>
       </div>
     </section>
   </div>
 </template>
-
-<script lang="ts">
-export default {
-  data() {
-    return {
-      techs: [
-        { name: 'Flutter', icon: 'vi-file-type-flutter' },
-        { name: 'React', icon: 'vi-file-type-reactjs' },
-        { name: 'Vue.js', icon: 'vi-file-type-vue' },
-        { name: 'Laravel', icon: 'si-laravel' },
-        { name: 'Postgres', icon: 'si-postgresql' },
-        { name: 'Eloquent', icon: 'si-php' },
-        { name: 'MySQL', icon: 'vi-file-type-mysql' },
-      ],
-    }
-  },
-}
-</script>
-
-<style scoped>
-@reference "@/assets/main.css";
-h1,
-h2,
-h3 {
-  letter-spacing: -0.04em;
-}
-</style>
