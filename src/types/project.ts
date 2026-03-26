@@ -2,11 +2,11 @@ export type ProjectCategory = 'Mobile' | 'Web' | 'Fullstack'
 
 export interface Project {
   id: number
-  title: string // e.g., "Plantitao App"
-  description: string // e.g., "Built a Flutter-based marketplace..." [cite: 23]
-  technologies: string[] // e.g., ["Dart", "Flutter", "Firebase"]
+  title: string
+  description: string
+  technologies: string[]
   imageUrl: string
-  category: ProjectCategory // Helps with your "All/Vue/TypeScript" filtering logic
+  category: ProjectCategory
   githubUrl?: string
   liveUrl?: string
   featured: boolean

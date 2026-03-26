@@ -1,8 +1,8 @@
 <script setup lang="ts">
+import { myProfile } from '@/data/portfolioData'
 import { OhVueIcon, addIcons } from 'oh-vue-icons'
 import { SiFacebook, SiGithub, SiLinkedin } from 'oh-vue-icons/icons'
 
-// Adding icons for the footer
 addIcons(SiFacebook, SiGithub, SiLinkedin)
 
 const currentYear = new Date().getFullYear()
@@ -13,7 +13,11 @@ const socials = [
     icon: 'si-facebook',
     link: 'https://web.facebook.com/alahmerrhoden.timpahan.9/',
   },
-  { name: 'Github', icon: 'si-github', link: 'https://github.com/meerccie' },
+  {
+    name: 'Github',
+    icon: 'si-github',
+    link: 'https://github.com/meerccie',
+  },
   {
     name: 'LinkedIn',
     icon: 'si-linkedin',
@@ -29,9 +33,9 @@ const socials = [
     >
       <div class="text-center md:text-left">
         <p class="text-white font-black text-[10px] uppercase tracking-widest mb-2">Based in</p>
-        <p class="text-slate-400 text-sm font-medium">Taguig City, Philippines</p>
+        <p class="text-slate-400 text-sm font-medium">{{ myProfile.location }}</p>
         <p class="text-slate-500 text-[10px] mt-4 font-bold uppercase tracking-tighter">
-          © {{ currentYear }} Al Ahmer Rhoden M. Timpahan
+          © {{ currentYear }} {{ myProfile.name }}
         </p>
       </div>
 
