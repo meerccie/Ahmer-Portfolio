@@ -7,10 +7,8 @@ import {
   NavigationMenuList,
 } from '@/components/ui/navigation-menu'
 
-// State to track if the mobile menu is open
 const isMobileMenuOpen = ref(false)
 
-// Function to close the menu when a link is clicked
 const closeMobileMenu = () => {
   isMobileMenuOpen.value = false
 }
@@ -141,7 +139,6 @@ const closeMobileMenu = () => {
 </template>
 
 <style scoped>
-/* Scoped reset to kill any leftover shadow or highlight from the UI library */
 :deep([data-slot='navigation-menu-link']) {
   background-color: transparent !important;
   box-shadow: none !important;
