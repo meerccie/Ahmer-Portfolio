@@ -7,7 +7,11 @@ defineProps<{
 </script>
 
 <template>
-  <div
+  <a
+    v-if="project.githubUrl"
+    :href="project.githubUrl"
+    target="_blank"
+    rel="noopener noreferrer"
     class="group flex flex-col overflow-hidden rounded-2xl border border-white/5 bg-white/[0.02] backdrop-blur-sm transition-all duration-500 hover:-translate-y-2 hover:border-emerald-500/30 hover:bg-white/[0.04] hover:shadow-[0_20px_40px_-15px_rgba(16,185,129,0.1)]"
   >
     <div
@@ -18,9 +22,33 @@ defineProps<{
         :alt="project.title"
         class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-80 group-hover:opacity-100"
       />
+
       <div
         class="absolute inset-0 bg-gradient-to-t from-slate-950/60 to-transparent opacity-60"
       ></div>
+
+      <div
+        class="absolute top-4 right-4 translate-x-4 opacity-0 transition-all duration-300 group-hover:translate-x-0 group-hover:opacity-100"
+      >
+        <div
+          class="rounded-full bg-emerald-500/20 p-2 backdrop-blur-md border border-emerald-500/20"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-4 w-4 text-emerald-400"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+            />
+          </svg>
+        </div>
+      </div>
     </div>
 
     <div class="flex flex-1 flex-col p-6 md:p-8">
@@ -50,26 +78,13 @@ defineProps<{
       </div>
 
       <div class="mt-8 flex items-center justify-between border-t border-white/5 pt-5">
-        <div class="flex gap-6">
-          <a
-            v-if="project.githubUrl"
-            :href="project.githubUrl"
-            target="_blank"
-            class="text-[11px] font-black uppercase tracking-widest text-slate-500 hover:text-white transition-colors"
-          >
-            GitHub
-          </a>
-          <a
-            v-if="project.liveUrl"
-            :href="project.liveUrl"
-            target="_blank"
-            class="inline-flex items-center text-[11px] font-black uppercase tracking-widest text-emerald-500 hover:text-emerald-300 transition-colors"
-          >
-            Live Demo
-            <span class="ml-2 transition-transform group-hover:translate-x-1">→</span>
-          </a>
-        </div>
+        <span
+          class="inline-flex items-center text-[11px] font-black uppercase tracking-widest text-emerald-500/80 transition-colors group-hover:text-emerald-400"
+        >
+          View Repository
+          <span class="ml-2 transition-transform duration-300 group-hover:translate-x-2">→</span>
+        </span>
       </div>
     </div>
-  </div>
+  </a>
 </template>
