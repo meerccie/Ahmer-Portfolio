@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { myProfile, experiences } from '@/data/portfolioData'
-import { highlightTech, formatBio } from '@/utils/highlighter' // Import the helpers
+import { myProfile, experiences, techs } from '@/data/portfolioData'
+import { highlightTech, formatBio } from '@/utils/highlighter'
 import { OhVueIcon, addIcons } from 'oh-vue-icons'
 import {
   ViFileTypeFlutter,
@@ -12,6 +12,7 @@ import {
   SiPhp,
 } from 'oh-vue-icons/icons'
 
+// Registering icons for use in the template
 addIcons(
   ViFileTypeFlutter,
   ViFileTypeReactjs,
@@ -21,16 +22,6 @@ addIcons(
   SiPostgresql,
   SiPhp,
 )
-
-const techs = [
-  { name: 'Flutter', icon: 'vi-file-type-flutter' },
-  { name: 'React', icon: 'vi-file-type-reactjs' },
-  { name: 'Vue.js', icon: 'vi-file-type-vue' },
-  { name: 'Laravel', icon: 'si-laravel' },
-  { name: 'Postgres', icon: 'si-postgresql' },
-  { name: 'Eloquent ORM', icon: 'si-php' },
-  { name: 'MySQL', icon: 'vi-file-type-mysql' },
-]
 </script>
 
 <template>
@@ -128,6 +119,7 @@ const techs = [
             <div
               class="absolute -left-[36.5px] top-1.5 w-3 h-3 rounded-full bg-emerald-500/20 border border-emerald-500/50"
             ></div>
+
             <span class="text-emerald-500 font-black text-[10px] uppercase tracking-widest block">
               {{ item.dateRange }}
             </span>

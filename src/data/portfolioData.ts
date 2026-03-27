@@ -1,5 +1,7 @@
 import type { Project } from '@/types/project'
-import type { UserProfile, Experience } from '@/types/user'
+import type { UserProfile } from '@/types/user'
+import type { Experience } from '@/types/exp'
+import type { Tech } from '@/types/techs'
 
 export const myProfile: UserProfile = {
   name: 'Al Ahmer Rhoden M. Timpahan',
@@ -11,6 +13,16 @@ export const myProfile: UserProfile = {
   freelance: 'Available',
   bio: 'A Junior Developer specializing in building high-performance applications with Laravel, Vue.js, and Flutter. I focus on clean architectural structure and advanced data modeling using Eloquent ORM to bridge complex backend logic with intuitive, web and mobile-first user experiences.',
 }
+
+export const techs: Tech[] = [
+  { name: 'Flutter', icon: 'vi-file-type-flutter' },
+  { name: 'React', icon: 'vi-file-type-reactjs' },
+  { name: 'Vue.js', icon: 'vi-file-type-vue' },
+  { name: 'Laravel', icon: 'si-laravel' },
+  { name: 'Postgres', icon: 'si-postgresql' },
+  { name: 'Eloquent ORM', icon: 'si-php' },
+  { name: 'MySQL', icon: 'vi-file-type-mysql' },
+]
 
 export const experiences: Experience[] = [
   {
