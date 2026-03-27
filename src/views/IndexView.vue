@@ -12,7 +12,6 @@ import {
   SiPhp,
 } from 'oh-vue-icons/icons'
 
-// Registering icons for use in the template
 addIcons(
   ViFileTypeFlutter,
   ViFileTypeReactjs,
