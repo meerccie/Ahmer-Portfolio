@@ -45,7 +45,6 @@ export const projects: Project[] = [
     technologies: ['Dart', 'Flutter', 'Git', 'Supabase'],
     imageUrl: '/images/plant_img1.png',
     githubUrl: 'https://github.com/meerccie/plant_scanning-identification',
-    featured: true,
     category: 'Mobile',
   },
   {
@@ -55,7 +54,6 @@ export const projects: Project[] = [
     technologies: ['React', 'TypeScript', 'Git'],
     imageUrl: '/images/depedLgo.jpg',
     githubUrl: 'https://github.com/meerccie/DepEdForms',
-    featured: false,
     category: 'Web',
   },
 ]
