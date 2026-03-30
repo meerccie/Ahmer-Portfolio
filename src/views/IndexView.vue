@@ -67,15 +67,16 @@ addIcons(
         </div>
 
         <div class="lg:col-span-5 flex justify-center lg:justify-end order-1 lg:order-2">
-          <div class="relative group w-full max-w-[240px] md:max-w-[260px]">
+          <div class="relative group w-full max-w-[220px] md:max-w-[240px]">
             <div class="absolute -inset-2 border border-emerald-500/10 rounded-[1rem] z-0"></div>
+
             <div
-              class="relative z-10 w-full aspect-[4/5] overflow-hidden rounded-[0.8rem] bg-slate-900 border border-white/5 shadow-xl"
+              class="relative z-10 w-full h-auto max-h-[350px] overflow-hidden rounded-[0.8rem] bg-slate-900 border border-white/5 shadow-xl"
             >
               <img
                 :src="myProfile.imageUrl"
                 :alt="myProfile.name"
-                class="w-full h-full object-cover grayscale-0 md:grayscale md:hover:grayscale-0 transition-all duration-700"
+                class="w-full max-h-[350px] object-contain block grayscale-0 md:grayscale md:hover:grayscale-0 transition-all duration-700"
               />
             </div>
           </div>
@@ -135,3 +136,10 @@ addIcons(
     </section>
   </div>
 </template>
+
+<style scoped>
+/* Ensure smooth transitions for grayscale effect */
+img {
+  backface-visibility: hidden;
+}
+</style>
