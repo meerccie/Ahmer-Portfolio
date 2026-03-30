@@ -6,7 +6,7 @@ import type { Tech } from '@/types/techs'
 export const myProfile: UserProfile = {
   name: 'Al Ahmer Rhoden M. Timpahan',
   title: 'Junior Developer',
-  imageUrl: '/images/portaitA.jpg',
+  imageUrl: '/images/portaitA.png',
   location: 'Taguig City, Philippines',
   email: 'ahmertimpahan297@gmail.com',
   phone: '0920-460-5839',
