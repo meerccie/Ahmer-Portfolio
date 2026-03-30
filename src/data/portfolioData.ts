@@ -27,7 +27,7 @@ export const techs: Tech[] = [
 export const experiences: Experience[] = [
   {
     id: 1,
-    dateRange: 'Feb 2025 – Oct 2025',
+    dateRange: 'Feb 2024 – Oct 2024',
     title: 'Web Development (Vue & Laravel)',
     description:
       '• Developed modular components in Vue.js for an educational platform.\n• Built backend logic using Laravel Eloquent to streamline data management.\n• Participated in iterative debugging to improve overall system stability.',
