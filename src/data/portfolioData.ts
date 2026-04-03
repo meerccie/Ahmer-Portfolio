@@ -69,4 +69,14 @@ export const projects: Project[] = [
     category: 'Web',
     liveDemoUrl: 'https://dep-ed-forms.vercel.app/',
   },
+  {
+      id: 3,
+    title: 'DevFocus - Repository Security & Vulnerability Scanner',
+    description: 'A full-stack DevSecOps tool designed to audit GitHub repositories for security vulnerabilities. It automatically identifies high-entropy strings, exposed credentials, and sensitive configuration files, providing a real-time risk assessment score.',
+    technologies: ['Vue', 'TypeScript', 'Git', 'Node.js', 'NestJS', 'Octokit', 'Github GraphQL API'],
+    imageUrl: '/images/devfocus-img.jpg',
+    githubUrl: 'https://github.com/meerccie/devfocus',
+    category: 'Web',
+    liveDemoUrl: 'https://devfocus-roan.vercel.app/',
+  },
 ]
