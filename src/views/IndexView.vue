@@ -7,9 +7,9 @@ import {
   ViFileTypeReactjs,
   ViFileTypeVue,
   ViFileTypeMysql,
-  SiLaravel,
+  SiNestjs,
   SiPostgresql,
-  SiPhp,
+  ViFileTypeNode,
 } from 'oh-vue-icons/icons'
 
 addIcons(
@@ -17,9 +17,9 @@ addIcons(
   ViFileTypeReactjs,
   ViFileTypeVue,
   ViFileTypeMysql,
-  SiLaravel,
+  SiNestjs,
   SiPostgresql,
-  SiPhp,
+  ViFileTypeNode,
 )
 </script>
 

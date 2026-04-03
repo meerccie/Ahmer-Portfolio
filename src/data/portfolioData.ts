@@ -18,9 +18,9 @@ export const techs: Tech[] = [
   { name: 'Flutter', icon: 'vi-file-type-flutter' },
   { name: 'React', icon: 'vi-file-type-reactjs' },
   { name: 'Vue.js', icon: 'vi-file-type-vue' },
-  { name: 'Laravel', icon: 'si-laravel' },
+  { name: 'Node.js', icon: 'vi-file-type-node' },
+  { name: 'NestJS', icon: 'si-nestjs' },
   { name: 'Postgres', icon: 'si-postgresql' },
-  { name: 'Eloquent ORM', icon: 'si-php' },
   { name: 'MySQL', icon: 'vi-file-type-mysql' },
 ]
 
