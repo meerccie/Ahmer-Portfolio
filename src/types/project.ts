@@ -8,4 +8,5 @@ export interface Project {
   imageUrl: string
   category: ProjectCategory
   githubUrl?: string
+  liveDemoUrl?: string
 }

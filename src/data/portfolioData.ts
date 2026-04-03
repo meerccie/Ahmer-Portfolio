@@ -67,5 +67,6 @@ export const projects: Project[] = [
     imageUrl: '/images/depedLgo.jpg',
     githubUrl: 'https://github.com/meerccie/DepEdForms',
     category: 'Web',
+    liveDemoUrl: 'https://dep-ed-forms.vercel.app/',
   },
 ]
