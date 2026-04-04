@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { watch } from 'vue'
+import { watch, onUnmounted } from 'vue'
 import type { Project } from '@/types/project'
 
 const props = defineProps<{
@@ -9,9 +9,25 @@ const props = defineProps<{
 
 const emit = defineEmits(['close'])
 
-// Prevent background scrolling when modal is open
-watch(() => props.isOpen, (val) => {
-  document.body.style.overflow = val ? 'hidden' : ''
+const handleEsc = (e: KeyboardEvent) => {
+  if (e.key === 'Escape') emit('close')
+}
+
+// Global Scroll Lock & Key Listeners
+watch(() => props.isOpen, (open) => {
+  if (open) {
+    document.body.style.overflow = 'hidden'
+    window.addEventListener('keydown', handleEsc)
+  } else {
+    document.body.style.overflow = ''
+    window.removeEventListener('keydown', handleEsc)
+  }
+})
+
+// Cleanup if component is destroyed while open
+onUnmounted(() => {
+  document.body.style.overflow = ''
+  window.removeEventListener('keydown', handleEsc)
 })
 </script>
 
@@ -34,24 +50,24 @@ watch(() => props.isOpen, (val) => {
         >
           <button 
             @click="emit('close')" 
-            class="absolute top-6 right-6 z-20 text-slate-500 hover:text-white transition-colors p-2 bg-[#080808]/50 backdrop-blur-md rounded-full"
+            class="absolute top-6 right-6 z-50 text-slate-500 hover:text-white transition-colors p-2 bg-[#080808]/50 backdrop-blur-md rounded-full border border-white/5"
           >
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
           </button>
 
-          <div class="overflow-y-auto p-10 md:p-12 custom-scrollbar">
+          <div class="overflow-y-auto p-8 md:p-12 custom-scrollbar">
             <div class="flex items-center gap-3 mb-6">
               <span class="px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-[10px] font-black uppercase tracking-[0.2em] text-emerald-500">
                 Project Insight
               </span>
             </div>
 
-            <h2 class="text-3xl md:text-4xl font-black text-white mb-6 tracking-tighter">
+            <h2 class="text-3xl md:text-4xl font-black text-white mb-6 tracking-tighter italic">
               {{ project.title }}
             </h2>
             
             <div class="prose prose-invert max-w-none mb-8">
-              <p class="text-base leading-relaxed text-slate-300 font-medium">
+              <p class="text-base leading-relaxed text-slate-300 font-medium whitespace-pre-line">
                 {{ project.description }}
               </p>
             </div>
@@ -67,8 +83,8 @@ watch(() => props.isOpen, (val) => {
                 Source Code ↗
               </a>
 
-              <a v-if="project.liveDemoUrl" :href="project.liveDemoUrl" target="_blank" class="w-full sm:w-auto justify-center inline-flex items-center px-6 py-3 rounded-xl bg-emerald-500 text-[11px] font-black uppercase tracking-[0.2em] text-slate-950 transition-transform hover:scale-105 active:scale-95">
-                Launch App
+              <a v-if="project.liveDemoUrl" :href="project.liveDemoUrl" target="_blank" class="w-full sm:w-auto justify-center inline-flex items-center px-8 py-4 rounded-xl bg-emerald-500 text-[11px] font-black uppercase tracking-[0.2em] text-slate-950 transition-all hover:scale-105 hover:shadow-[0_0_20px_rgba(16,185,129,0.4)] active:scale-95">
+                Launch Application
               </a>
             </div>
           </div>
@@ -80,16 +96,16 @@ watch(() => props.isOpen, (val) => {
 
 <style scoped>
 .custom-scrollbar::-webkit-scrollbar {
-  width: 6px;
+  width: 5px;
 }
 .custom-scrollbar::-webkit-scrollbar-track {
   background: transparent;
 }
 .custom-scrollbar::-webkit-scrollbar-thumb {
-  background: rgba(16, 185, 129, 0.1);
+  background: rgba(16, 185, 129, 0.2);
   border-radius: 10px;
 }
 .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-  background: rgba(16, 185, 129, 0.3);
+  background: rgba(16, 185, 129, 0.4);
 }
 </style>
