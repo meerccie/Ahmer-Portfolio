@@ -11,7 +11,7 @@ export const myProfile: UserProfile = {
   email: 'ahmertimpahan297@gmail.com',
   phone: '0920-460-5839',
   freelance: 'Available',
-  bio: 'A Junior Developer specializing in building high-performance applications with Laravel, Vue.js, and Flutter. I focus on clean architectural structure and advanced data modeling using Eloquent ORM to bridge complex backend logic with intuitive, web and mobile-first user experiences.',
+  bio: 'A Full-Stack Developer with a solid foundation in NestJS, Vue.js, and Flutter. I am passionate about building applications that don\'t just work, but are built to last - leveraging MikroORM for precise data modeling and exploring Clean Architecture patterns like Hexagonal and DDD. I thrive on turning complex backend logic into fluid, high-performance user experiences across web and mobile.',
 }
 
 export const techs: Tech[] = [

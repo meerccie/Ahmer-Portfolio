@@ -9,7 +9,12 @@ const KEYWORDS = [
   'database',
   'architecture',
   'React',
-  'Eloquent',
+  'NestJS',
+  'TypeORM',
+  'Clean',
+  'Hexagonal',
+  'DDD',
+  'MikroORM',
 ]
 
 export const highlightTech = (text: string): string => {
