@@ -8,6 +8,7 @@ import {
   ViFileTypeVue,
   ViFileTypeMysql,
   SiNestjs,
+  SiLaravel,
   SiPostgresql,
   ViFileTypeNode,
 } from 'oh-vue-icons/icons'
@@ -18,6 +19,7 @@ addIcons(
   ViFileTypeVue,
   ViFileTypeMysql,
   SiNestjs,
+  SiLaravel,
   SiPostgresql,
   ViFileTypeNode,
 )
