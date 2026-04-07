@@ -20,8 +20,10 @@ export const techs: Tech[] = [
   { name: 'Vue.js', icon: 'vi-file-type-vue' },
   { name: 'Node.js', icon: 'vi-file-type-node' },
   { name: 'NestJS', icon: 'si-nestjs' },
-  { name: 'Postgres', icon: 'si-postgresql' },
+  { name: 'Laravel', icon: 'si-laravel' },
+  { name: 'PostgreSQL', icon: 'si-postgresql' },
   { name: 'MySQL', icon: 'vi-file-type-mysql' },
+  
 ]
 
 export const experiences: Experience[] = [
